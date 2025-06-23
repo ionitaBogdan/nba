@@ -17,7 +17,7 @@ async function fetchAllPlayerData(season) {
 
   while (hasMore) {
     try {
-      const res = await fetch(`http://rest.nbaapi.com/api/PlayerDataTotals/query?season=${season}&pageSize=100&pageNumber=${page}`);
+      const res = await fetch(`https://rest.nbaapi.com/api/PlayerDataTotals/query?season=${season}&pageSize=100&pageNumber=${page}`);
       if (res.status === 404) {
         // API returns 404 when no more pages
         hasMore = false;
