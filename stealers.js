@@ -1,7 +1,7 @@
 const seasonSelect = document.getElementById('seasonSelect');
 const top5List = document.getElementById('top5List');
 
-const API_URL = 'http://rest.nbaapi.com/api/PlayerDataTotals/query';
+const PROXY_URL = 'https://nba-backend-5fx5.onrender.com/';
 
 // Populate season options from 2000 to 2025
 function populateSeasons(start = 2000, end = new Date().getFullYear()) {
@@ -20,7 +20,7 @@ async function fetchAllPlayerData(season) {
 
   while (hasMore) {
     try {
-      const res = await fetch(`${API_URL}?season=${season}&pageSize=100&pageNumber=${page}`);
+      const res = await fetch(`${PROXY_URL}?season=${season}&pageSize=100&pageNumber=${page}`);
       if (res.status === 404) break;
       const data = await res.json();
       if (data.length === 0) break;
