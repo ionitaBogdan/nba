@@ -19,7 +19,7 @@ async function fetchAllPlayerData(season) {
   let hasMore = true;
   while (hasMore) {
     try {
-      const res = await fetch(`${PROXY_URL}?season=${season}&pageSize=100&pageNumber=${page}`);
+      const res = await fetch(`${PROXY_URL}/playerdatatotals?season=${season}&pageSize=100&pageNumber=${page}`);
       
       if (res.status === 404) {
         hasMore = false;
