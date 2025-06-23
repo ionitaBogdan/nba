@@ -1,6 +1,8 @@
 const seasonSelect = document.getElementById('seasonSelect');
 const top5List = document.getElementById('top5List');
 
+const API_URL = 'http://rest.nbaapi.com/api/PlayerDataTotals/query';
+
 // Populate season options from 2000 to 2025
 function populateSeasons(start = 2000, end = new Date().getFullYear()) {
   for (let year = end; year >= start; year--) {
@@ -18,7 +20,7 @@ async function fetchAllPlayerData(season) {
 
   while (hasMore) {
     try {
-      const res = await fetch(`https://rest.nbaapi.com/api/PlayerDataTotals/query?season=${season}&pageSize=100&pageNumber=${page}`);
+      const res = await fetch(`${API_URL}?season=${season}&pageSize=100&pageNumber=${page}`);
       if (res.status === 404) break;
       const data = await res.json();
       if (data.length === 0) break;
@@ -42,7 +44,7 @@ function renderTop5(players) {
       <span class="rank">#${index + 1}</span>
       <span class="name">${p.playerName}</span>
       <span class="team">${p.team}</span>
-      <span class="assists">${p.assists} assits</span>`;
+      <span class="assists">${p.assists} assists</span>`;
     top5List.appendChild(li);
   });
 }
@@ -55,6 +57,9 @@ async function updateTop5(season) {
 }
 
 populateSeasons(2000, 2025);
+
+// Fetch data for initial season (optional, to show something by default)
+updateTop5(new Date().getFullYear());
 
 seasonSelect.addEventListener('change', () => {
   updateTop5(seasonSelect.value);

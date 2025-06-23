@@ -1,5 +1,7 @@
 const seasonSelect = document.getElementById('seasonSelect');
 
+const API_URL = 'http://rest.nbaapi.com/api/PlayerDataTotals/query';
+
 function populateSeasonOptions(start = 2000, end = new Date().getFullYear()) {
   seasonSelect.innerHTML = '';
   for (let year = end; year >= start; year--) {
@@ -17,9 +19,9 @@ async function fetchAllPlayerData(season) {
 
   while (hasMore) {
     try {
-      const res = await fetch(`https://rest.nbaapi.com/api/PlayerDataTotals/query?season=${season}&pageSize=100&pageNumber=${page}`);
+      const res = await fetch(`${API_URL}?season=${season}&pageSize=100&pageNumber=${page}`);
+      
       if (res.status === 404) {
-        // API returns 404 when no more pages
         hasMore = false;
         break;
       }
@@ -41,7 +43,6 @@ async function fetchAllPlayerData(season) {
   return allPlayers;
 }
 
-
 async function fetchTopPlayerData(sortBy, season) {
   const allData = await fetchAllPlayerData(season);
   const validPlayers = allData.filter(p => typeof p[sortBy] === 'number' && !isNaN(p[sortBy]));
@@ -59,7 +60,7 @@ function renderPlayerCard(player, statKey, elementId) {
   container.innerHTML = `
     <h3 class="text-lg font-bold">${player.playerName}</h3>
     <p><strong>Team:</strong> ${player.team}</p>
-    <p><strong>${statKey}:</strong> ${player[statKey]}</p> `;
+    <p><strong>${statKey}:</strong> ${player[statKey]}</p>`;
 }
 
 async function updateSeasonLeaders(season) {
@@ -85,9 +86,11 @@ updateSeasonLeaders(seasonSelect.value);
 seasonSelect.addEventListener('change', () => {
   updateSeasonLeaders(seasonSelect.value);
 });
+
 document.getElementById('menuBtn')?.addEventListener('click', () => {
   const menu = document.getElementById('mobileMenu');
   menu.classList.toggle('hidden');
 });
+
 
 
