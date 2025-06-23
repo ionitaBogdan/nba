@@ -1,0 +1,219 @@
+body {
+  background: url('Wooden-Basketball-Court-Wallpaper-Mural.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Bebas Neue', sans-serif;
+  color: #111;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #f4cccc;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  width:25%;
+}
+
+
+.title {
+  font-size: 1.75rem;
+  letter-spacing: 1px;
+}
+
+.nav-links a,
+.mobile-link {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #111;
+  border-bottom: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.nav-links a:hover,
+.mobile-link:hover {
+  border-color: #000;
+}
+
+.menu-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  background-color: #f4cccc;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 1rem;
+  border-top: 1px solid #333;
+}
+
+.mobile-link {
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+}
+
+/* Main Content */
+.intro {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+
+.season-dropdown {
+  max-width: 300px;
+  margin: 0 auto 2rem;
+}
+
+.dropdown {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #000;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Cards */
+.stats-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stat-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+.menu-btn {
+  padding: 0.5rem 1rem;
+  background-color: #f4cccc;
+  color: white;
+  border: 1px solid #d88c8c; /* subtle frame */
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* soft shadow */
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-btn:hover {
+  background-color: #e26d6d;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.mobile-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 200px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-link {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-link:last-child {
+  border-bottom: none;
+}
+
+.mobile-link:hover {
+  background-color: #f9f9f9;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  background-color: #f4cccc;
+  border-top: 1px solid #333;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+.top5-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.player-item {
+  background: #fff;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.rank {
+  font-weight: bold;
+  color: #e74c3c;
+}

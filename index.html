@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NBA Stats</title>
+  <link rel="stylesheet" href="resources/style.css" />
+</head>
+
+<body class="bg-cover bg-center flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-group">
+      <img src="resources/logo.png" class="logo" />
+      <h1 class="title">NBA Stats</h1>
+    </div>
+
+    <div class="menu-container">
+      <button id="menuBtn" class="menu-btn">☰ Stats</button>
+      <aside id="mobileMenu" class="mobile-menu hidden">
+        <a href="scorers.html" class="mobile-link">Top Scorers</a>
+        <a href="assisters.html" class="mobile-link">Top Assists</a>
+        <a href="stealers.html" class="mobile-link">Top Stealers</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1 px-4 py-6 text-center">
+    <h2 class="intro">Best place to get updated on all the stats of this season</h2>
+
+    <div class="season-dropdown">
+      <select id="seasonSelect" class="dropdown">
+        <option selected disabled>Select a season...</option>
+      </select>
+    </div>
+
+    <div class="stats-grid">
+      <section class="card">
+        <h3 class="stat-title">Top Scorer</h3>
+        <div id="topScorer"></div>
+      </section>
+
+      <section class="card">
+        <h3 class="stat-title">Top Assister</h3>
+        <div id="topAssister"></div>
+      </section>
+
+      <section class="card">
+        <h3 class="stat-title">Top Steals</h3>
+        <div id="topSteals"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    2025 NBA Stats Demo App.
+  </footer>
+
+  <!-- Script -->
+  <script src="home.js"></script>
+</body>
+
+</html>
