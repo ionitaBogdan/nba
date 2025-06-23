@@ -3,7 +3,8 @@ const seasonSelect = document.getElementById('seasonSelect');
 const PROXY_URL = 'https://nba-backend-5fx5.onrender.com/';
 
 // Populate season options from 2000 to 2025
-function populateSeasons(start = 2000, end = new Date().getFullYear()) {
+function populateSeasonOptions(start = 2000, end = new Date().getFullYear()) {
+  seasonSelect.innerHTML = '';
   for (let year = end; year >= start; year--) {
     const option = document.createElement('option');
     option.value = year;
@@ -13,10 +14,9 @@ function populateSeasons(start = 2000, end = new Date().getFullYear()) {
 }
 
 async function fetchAllPlayerData(season) {
-  let players = [];
+  let allPlayers = [];
   let page = 1;
   let hasMore = true;
-
   while (hasMore) {
     try {
       const res = await fetch(`${PROXY_URL}?season=${season}&pageSize=100&pageNumber=${page}`);
