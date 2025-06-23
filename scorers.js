@@ -1,7 +1,7 @@
 const seasonSelect = document.getElementById('seasonSelect');
 const top5List = document.getElementById('top5List');
 
-const PROXY_URL = 'https://nba-backend-5fx5.onrender.com/';
+const PROXY_URL = 'https://nba-backend-5fx5.onrender.com';
 
 // Populate season options from 2000 to 2025
 function populateSeasons(start = 2000, end = new Date().getFullYear()) {
