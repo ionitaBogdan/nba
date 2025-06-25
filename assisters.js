@@ -20,7 +20,7 @@ async function fetchAllPlayerData(season) {
 
   while (hasMore) {
     try {
-      const res = awaitfetch(`${PROXY_URL}/playerdatatotals?season=${season}&page=${page}`);
+      const res = await fetch(`${PROXY_URL}/playerdatatotals?season=${season}&page=${page}`);
       if (res.status === 404) break;
       const data = await res.json();
       if (data.length === 0) break;
